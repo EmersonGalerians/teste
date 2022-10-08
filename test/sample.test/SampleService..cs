@@ -28,7 +28,7 @@ namespace Sample.Test
         [InlineData(1)]
         [InlineData(2)]
         public void IsEven_ValueLessInput0_ReturnTrue(int value) {
-            var result = _sampleService.IsEven(0);
+            var result = _sampleService.IsEven(value);
             Assert.False(result);
         }
 
@@ -55,14 +55,36 @@ namespace Sample.Test
             Assert.True(result, $"{value} should be prime");
         }
         [Theory]
+        [InlineData(-2)]
+        [InlineData(-1)]
+        [InlineData(0)]
+        [InlineData(1)]
         [InlineData(2)]
-        [InlineData(3)]
-        [InlineData(5)]
-        [InlineData(7)]
-        public void IsPrime_IsEven_ReturnTrue() {
-            var result = _sampleService.IsEven(false);
+        public void IsEven_ValueLessInput2_Return(int value) {
+            var result = _sampleService.IsEven(value);
+
             Assert.True(result);
         }
 
+        [Theory]
+        [InlineData(1, 2, 3)]
+        [InlineData(-4, -6, -10)]
+        [InlineData(-2, 2, 0)]
+        [InlineData(int.MinValue, -1, int.MaxValue)]
+        public void Somar_NumeroRelativos_RetornarNumeroRelativo(int num1, int num2 , int valorEsperado) {
+            var resultado = _sampleService.Sum(num1, num2);
+            Assert.Equal(valorEsperado, resultado);
+        }
+
+        [Theory]
+        [InlineData(1, 2, 3)]
+        [InlineData(-4, -6, -10)]
+        [InlineData(-2, 2, 0)]
+        [InlineData(int.MinValue, -1, int.MaxValue)]
+        public void Subtrair_NumeroRelativos_RetornarNumeroRelativo(int num1, int num2, int valorEsperado)
+        {
+            var resultado = _sampleService.Sub(num1, num2);
+            Assert.Equal(valorEsperado, resultado);
+        }
     }
 }
