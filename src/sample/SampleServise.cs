@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Sample
+namespace sample
 {
     public class SampleService
     {
@@ -9,11 +9,11 @@ namespace Sample
         //eles ou a partir do total
         public decimal Sum(decimal numero1, decimal numero2)
         {
-            return (numero1 + numero2);
+            return numero1 + numero2;
         }
         public decimal Sub(decimal numero1, decimal numero2)
         {
-            return (numero1 - numero2);
+            return numero1 - numero2;
         }
 
         //TODO: Criar um método que verifica se o número é par
@@ -33,9 +33,9 @@ namespace Sample
             {
                 return false;
             }
-           
+
             return true;
-            
+
         }
 
         #region Verifica se o número é primo ou não
@@ -57,7 +57,6 @@ namespace Sample
 
             return true;
         }
-
-      
+        #endregion
     }
 }

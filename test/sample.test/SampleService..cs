@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using sample;
+using Xunit;
 
 namespace Sample.Test
 {

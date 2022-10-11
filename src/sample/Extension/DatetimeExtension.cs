@@ -11,7 +11,7 @@ namespace Sample.Extension
 
         public static string ToStringPtBR(this DateTime date)
         {
-            return date.ToString("dd/MM/yyyy HH:mm");
+            return date.ToString("dd/MM/yyyy HH:mm:ss");
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Sample.Extensions;
+﻿using Sample.Extension;
 using System;
 using Xunit;
 
@@ -40,17 +40,17 @@ namespace Sample.Test.Extensions
             //act & assert
             Assert.Throws<ArgumentNullException>(() => dateTest.ToStringShortPtBR());
         }
-        [Fact]
-        public void Should_DateTimeToStringPtBR_ReturnFalse()
+        [Theory]
+        [InlineData(2022, 02, 10, 01, 12, 20)]
+        [InlineData(2022, 20, 01, 01, 10, 20)]
+        public void Should_DateTimeToStringPtBR_ReturnFalse(int Y, int M, int D, int H, int m, int S)
         {
-            var dateTest = DateTime.Now;
-            var hourTest = "hh/mm";
 
-
-            var result = dateTest.ToStringPtBR();
-            var resultSplit = result;
-
-            Assert.False(hourTest <= resultSplit);
+            
+            var date = new DateTime( Y,  M,  D,  H,  m,  S);
+            var result = date.ToStringPtBR();
+            var resultSplit = result.Split("/");
+            Assert.True(bool.Parse(result));
         }
     }
 }
